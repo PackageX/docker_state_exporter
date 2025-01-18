@@ -7,6 +7,6 @@ RUN CGO_ENABLED=0 go build -ldflags="-w -s" -o /go/bin/docker_state_exporter
 
 FROM gcr.io/distroless/base-debian11
 COPY --from=builder /go/bin/docker_state_exporter /go/bin/docker_state_exporter
-EXPOSE 8080
+EXPOSE 8085
 ENTRYPOINT ["/go/bin/docker_state_exporter"]
-CMD ["-listen-address=:8080"]
+CMD ["-listen-address=:8085"]
